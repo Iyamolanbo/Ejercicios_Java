@@ -62,11 +62,96 @@ public class Ejercicios_Arrays_Ndimensional {
         Descripción: Realiza un programa que rellene un array de 6 filas por 10 columnas con números enteros positivos comprendidos 
         entre 0 y 1000 (ambos incluidos). A continuación, el programa deberá dar la posición tanto del máximo como del mínimo.
         */
+        /*
+        int[][] matriz610 = new int[6][10];
+        int aleatorio = ((int)(Math.random()*1000));
+        int maximo = aleatorio, minimo = aleatorio;
+        
+        for(int i = 0; i < matriz610.length; i++){
+            for(int j = 0; j < matriz610[i].length; j++){
+                matriz610[i][j] = aleatorio;
+                aleatorio = ((int)(Math.random()*1000));
+            }
+        }
+               
+        
+        for(int i = 0; i < matriz610.length; i++){
+            for(int j = 0; j < matriz610[i].length; j++){
+                if(maximo < matriz610[i][j]){
+                    maximo = matriz610[i][j];
+                } else if(minimo > matriz610[i][j]){
+                    minimo = matriz610[i][j];
+                }
+            }
+        }
+        
+        System.out.println("La matriz es: ");
+        for(int i = 0; i < matriz610.length; i++){
+            for(int j = 0; j < matriz610[i].length; j++){
+                System.out.print(matriz610[i][j]+" ");
+            }
+            System.out.println();
+        }
+        
+        System.out.println("El elemnto maximo de la matriz es: "+maximo);
+        System.out.println("El elemnto mínimo de la matriz es: "+minimo);
+        */
           
         
+        /*
+        Archivo: Ejercicio 6
+        Autor: Andrés Bombela Iyanga Molongua
+        Fecha: Málaga, 02/11/2026
+        Descripción: Realiza un programa que rellene un array de 6 filas por 10 columnas con números enteros positivos comprendidos 
+        entre 0 y 1000 (ambos incluidos). A continuación, el programa deberá dar la posición tanto del máximo como del mínimo. Que no
+        se repita ningún número del array.
+        */
       
+        int[][] matrizmod = new int[6][10];
+        int aleatorio = ((int)(Math.random()*1000));
+        int maximo = aleatorio, minimo = aleatorio, repeticion = 0;
+        
+        for(int i = 0; i < matrizmod.length; i++){
+            for(int j = 0; j < matrizmod[i].length; j++){
+                matrizmod[i][j] = aleatorio;
+                aleatorio = ((int)(Math.random()*1000));
+            }
+        }
+        
+        System.out.println("Matriz antes del retoque:");
+        for(int i = 0; i < matrizmod.length; i++){
+            for(int j = 0; j < matrizmod[i].length; j++){
+                System.out.print(matrizmod[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
         
         
+        for(int i = 0; i < matrizmod.length; i++){
+            for(int j = 0; j < matrizmod[i].length; j++){
+                for(int k = 0; k < matrizmod.length; k++){
+                    for(int l = 0; l < matrizmod[k].length; l++){
+                        if((matrizmod[i][j] == matrizmod[k][l])&&(i != k)&&(j != l)){
+                            repeticion++;
+                            aleatorio = ((int)(Math.random()*1000));
+                            matrizmod[k][l] = aleatorio;
+                        }
+                    }
+                }
+            }
+        }
+        
+        System.out.println("Matriz después del retoque:");
+        for(int i = 0; i < matrizmod.length; i++){
+            for(int j = 0; j < matrizmod[i].length; j++){
+                System.out.print(matrizmod[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        
+        System.out.println(repeticion);
         
         
         
