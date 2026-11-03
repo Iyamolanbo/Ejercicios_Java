@@ -162,7 +162,7 @@ public class Ejercicios_Arrays_Ndimensional {
         Descripción: Mejora el juego “Busca el tesoro” de tal forma que si hay una mina a una casilla de distancia, el programa avise diciendo
         ¡Cuidado! ¡Hay una mina cerca!
         */
-        
+        /*
         char[][] tablero = new char[6][6];
         char[][] tableroCopia = new char[6][6];
         
@@ -222,7 +222,14 @@ public class Ejercicios_Arrays_Ndimensional {
                 coory = sc.nextInt();
             }
             
-
+            
+            //REVISAR. NO FUNCIONA CORRECTAMENTE. Evaluar posiciones a 1a casilla de distancia.
+            if((tablero[coorx][coory-1] == 'B')||(tablero[coorx][coory+1] == 'B')||(tablero[coorx-1][coory-1] == 'B')
+               ||(tablero[coorx-1][coory] == 'B')||(tablero[coorx-1][coory+1] == 'B')||(tablero[coorx+1][coory-1] == 'B')
+               ||(tablero[coorx+1][coory] == 'B')||(tablero[coorx+1][coory+1] == 'B')){
+                System.out.println("¡Cuidado! ¡Hay una mina cerca!");
+            }
+            
             if(tablero[coorx][coory] == 'B'){
                 tablero[coorx][coory] = 'M';
                 System.out.println("Ha tocado una mina.");
@@ -240,14 +247,166 @@ public class Ejercicios_Arrays_Ndimensional {
                 System.out.println();
             }
             System.out.println();
-            
-            
-            
-        }while(muerte == false);
 
+        }while(muerte == false);
+        */
+        
+        /*
+        Archivo: Ejercicio 10
+        Autor: Andrés Bombela Iyanga Molongua
+        Fecha: Málaga, 03/11/2026
+        Descripción: Realiza el juego de las tres en raya
+        */
+        /*
+        char[][] tablero = new char[3][3];
+        char letraUsu = 'X', letraMaq = 'O';
+        int aleatorio = ((int)(Math.random()*6));
+        int contador = 0, coorx = 0, coory = 0, contUsu = 0, contMaq = 0;
+        boolean vencedor = false;
+        
+        for(int i = 0; i < tablero.length; i++){
+            Arrays.fill(tablero[i], '_');
+        }
+        
+        do{
+            System.out.println("Indique dónde quiere colocar la marca: ");
+            System.out.println("Coordenada X:");
+            System.out.print(":>_");
+            coorx = sc.nextInt();
+            System.out.println("Coordenada Y:");
+            System.out.print(":>_");
+            coory = sc.nextInt();
+
+            //Verificar que el usuario pone las coordenadas.
+            while((coorx >= 3)||(coorx < 0)||(coory >= 3)||(coory < 0)){
+                System.out.println("Datos incorrectos:");
+                System.out.println("Coordenada X:");
+                System.out.print(":>_");
+                coorx = sc.nextInt();
+                System.out.println("Coordenada Y:");
+                System.out.print(":>_");
+                coory = sc.nextInt();
+            }
+
+            //Verificar que la posicón del tablero elejida esté vacía.
+            while((tablero[coorx][coory] == letraUsu)||(tablero[coorx][coory] == letraMaq)){
+                System.out.println("Posición ocupada. Elija otra:");
+                System.out.println("Datos incorrectos:");
+                System.out.println("Coordenada X:");
+                System.out.print(":>_");
+                coorx = sc.nextInt();
+                System.out.println("Coordenada Y:");
+                System.out.print(":>_");
+                coory = sc.nextInt();
+            }
+
+            tablero[coorx][coory] = letraUsu;
+
+            //Colocar eleccion de la máquina.
+            for(int i = 0; i < tablero.length; i++){
+                for(int j = 0; j < tablero[i].length; j++){
+                    if(contador == aleatorio){
+                        if(tablero[i][j] == letraUsu){
+                            aleatorio = ((int)(Math.random()*6));
+                        } else{
+                            tablero[i][j] = letraMaq;
+                        }
+                    }
+                    contador++;
+                }
+            }
+            aleatorio = ((int)(Math.random()*6));
+            contador = 0;
+
+            for(int i = 0; i < tablero.length; i++){
+                for(int j = 0; j < tablero[i].length; j++){
+                    System.out.print(tablero[i][j]+" ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+            
+            for(int i = 0; i < tablero.length; i++){
+                if(tablero[0][i] == 'x'){
+                    contUsu++;
+                } else if(tablero[0][i] == 'O'){
+                    contMaq++;
+                }
+            }
+            
+            System.out.println(contUsu);
+            System.out.println(contMaq);
+            
+            if(contUsu == 3){
+                System.out.println("Venció el usuario.");
+                vencedor = true;
+            } else if(contMaq == 3){
+                System.out.println("Venció la máquina.");
+                vencedor = true;
+            }
+            
+        } while(vencedor == false);
+        */
         
         
+        /*
+        Archivo: Ejercicio 11
+        Autor: Andrés Bombela Iyanga Molongua
+        Fecha: Málaga, 03/11/2026
+        Descripción: Realiza un programa que muestre por pantalla un array de 10 filas por 10 columnas relleno con números aleatorios 
+        entre 200 y 300. A continuación, el programa debe mostrar los números de la diagonal que va desde la esquina superior izquierda
+        a la esquina inferior derecha, así como el máximo, el mínimo y la media de los números que hay en esa diagonal
+        */
         
+        int[][] matriz = new int[10][10];
+        int[] arrayMat = new int[10];
+        int aleatorio = ((int)(Math.random()*(300-200+1)+200));
+        int max = aleatorio, min = aleatorio, media = 0;
+        
+
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                matriz[i][j] = aleatorio;
+                aleatorio = ((int)(Math.random()*(300-200+1)+200));
+            }
+        }
+        
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                if(i == j){
+                    arrayMat[i] = matriz[i][j];
+                }
+            }
+        }
+        
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                System.out.print(matriz[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        
+        System.out.print("La diagonal está formada por: ");
+        for(int i = 0; i < arrayMat.length; i++){
+            System.out.print(arrayMat[i]+" ");
+        }
+        System.out.println();
+        
+        for(int i = 0; i < arrayMat.length; i++){
+            if(max < arrayMat[i]){
+                max = arrayMat[i];
+            } else if(min > arrayMat[i]){
+                min = arrayMat[i];
+            }
+            media = media + arrayMat[i];
+        }
+        
+        media = media/arrayMat.length;
+        
+        System.out.println("El número máximo: "+max);
+        System.out.println("El número mínimo: "+min);
+        System.out.println("La media: "+media);
         
         
         
