@@ -106,7 +106,8 @@ public class Ejercicios_Arrays_Ndimensional {
         entre 0 y 1000 (ambos incluidos). A continuación, el programa deberá dar la posición tanto del máximo como del mínimo. Que no
         se repita ningún número del array.
         */
-      
+        
+        /*
         int[][] matrizmod = new int[6][10];
         int aleatorio = ((int)(Math.random()*1000));
         int maximo = aleatorio, minimo = aleatorio, repeticion = 0;
@@ -152,6 +153,103 @@ public class Ejercicios_Arrays_Ndimensional {
         System.out.println();
         
         System.out.println(repeticion);
+        */
+        
+        /*
+        Archivo: Ejercicio 7
+        Autor: Andrés Bombela Iyanga Molongua
+        Fecha: Málaga, 03/11/2026
+        Descripción: Mejora el juego “Busca el tesoro” de tal forma que si hay una mina a una casilla de distancia, el programa avise diciendo
+        ¡Cuidado! ¡Hay una mina cerca!
+        */
+        
+        char[][] tablero = new char[6][6];
+        char[][] tableroCopia = new char[6][6];
+        
+        final char letra = 'U';
+        
+        boolean muerte = false;
+        
+        int contador = 0, coorx = 0, coory = 0, aleatorio = ((int)(Math.random()*36));
+        
+        
+        for(int i = 0; i < tablero.length; i++){
+            Arrays.fill(tablero[i], 'X');
+        }
+        
+        //El tableroCopia será el que mostremos al usuario porque no queremos que vea dónde está la bomba.
+        for(int i = 0; i < tablero.length; i++){
+            for(int j = 0; j < tablero[i].length; j++){
+                tableroCopia[i][j] = tablero[i][j];
+            }
+        }
+        
+        for(int i = 0; i < tablero.length; i++){
+            for(int j = 0; j < tablero[i].length; j++){
+                System.out.print(tablero[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        
+        //Colocar la bomba un lugar aleatorio del tablero.
+        for(int i = 0; i < tablero.length; i++){
+            for(int j = 0; j < tablero[i].length; j++){
+                if(contador == aleatorio){
+                    tablero[i][j] = 'B';
+                }
+                contador++;
+            }
+        }
+        
+        
+        do{
+            System.out.println("Indique dónde quiere colocar la marca: ");
+            System.out.println("Coordenada X:");
+            System.out.print(":>_");
+            coorx = sc.nextInt();
+            System.out.println("Coordenada Y:");
+            System.out.print(":>_");
+            coory = sc.nextInt();
+            
+            while((coorx >= 6)||(coorx < 0)||(coory >= 6)||(coory < 0)){
+                System.out.println("Datos incorrectos:");
+                System.out.println("Coordenada X:");
+                System.out.print(":>_");
+                coorx = sc.nextInt();
+                System.out.println("Coordenada Y:");
+                System.out.print(":>_");
+                coory = sc.nextInt();
+            }
+            
+
+            if(tablero[coorx][coory] == 'B'){
+                tablero[coorx][coory] = 'M';
+                System.out.println("Ha tocado una mina.");
+                muerte = true;
+            } else{
+                tableroCopia[coorx][coory] = letra;
+            }
+            
+            
+            
+            for(int i = 0; i < tablero.length; i++){
+                for(int j = 0; j < tablero[i].length; j++){
+                    System.out.print(tableroCopia[i][j]+" ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+            
+            
+            
+        }while(muerte == false);
+
+        
+        
+        
+        
+        
         
         
         
