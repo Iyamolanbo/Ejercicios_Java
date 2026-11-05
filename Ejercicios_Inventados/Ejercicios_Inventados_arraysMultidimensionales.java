@@ -114,7 +114,7 @@ public class Ejercicios_Inventados_arraysMultidimensionales {
         Descripción: Diseña un algoritmo de búsqueda lineal adaptado a matrices para encontrar en qué coordenadas exactas (fila, columna)
         se encuentra un número determinado.
         */
-        
+        /*
         int[][] matriz = new int[4][4];
         int aleatorio = ((int)(Math.random()*(298-54+1)+54));
         int numeroUsu = 0, coorx = 0, coory = 0;
@@ -151,6 +151,136 @@ public class Ejercicios_Inventados_arraysMultidimensionales {
         System.out.println("El número "+numeroUsu+", se encuentra en las coordenadas: ");
         System.out.println("X: "+coorx);
         System.out.println("Y: "+coory);
+        */
+        
+        /*
+        Archivo: Ejercicio 6
+        Autor: Andrés Bombela Iyanga Molongua
+        Fecha: Málaga, 05/11/2026
+        Descripción: Dada una matriz de 3x3, calcula y muestra de manera independiente la suma de los elementos de cada fila.
+        */
+        /*
+        int[][] matriz = new int[3][3];
+        int aleatorio = ((int)(Math.random()*(345-23+1)+23));
+        int sumFila = 0;
+        
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                matriz[i][j] = aleatorio;
+                aleatorio = ((int)(Math.random()*(345-23+1)+23));
+            }
+        }
+        
+        
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                System.out.print(matriz[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        
+        
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                sumFila = sumFila + matriz[i][j];
+            }
+            System.out.println("La suma de términos en la fila "+i+" es: "+sumFila);
+            sumFila = 0;
+        }
+        System.out.println();
+        */
+        
+        
+        /*
+        Archivo: Ejercicio 7
+        Autor: Andrés Bombela Iyanga Molongua
+        Fecha: Málaga, 05/11/2026
+        Descripción: Utiliza bucles anidados para calcular y mostrar la suma total de los elementos de cada columna de una matriz dada.
+        */
+        /*
+        int[][] matriz = new int[3][3];
+        int aleatorio = ((int)(Math.random()*(10-2+1)+2));
+        int sumCol = 0;
+        
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                matriz[i][j] = aleatorio;
+                aleatorio = ((int)(Math.random()*(10-2+1)+2));
+            }
+        }
+        
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                System.out.print(matriz[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        
+        
+        for(int i = 0; i < matriz[0].length; i++){
+            for(int j = 0; j < matriz.length; j++){
+                sumCol = sumCol + matriz[j][i];
+            }
+            System.out.println("La suma de términos de la columna "+i+" es: "+sumCol);
+            sumCol = 0;
+        }
+        System.out.println();
+        */
+        
+        /*
+        Archivo: Ejercicio 8
+        Autor: Andrés Bombela Iyanga Molongua
+        Fecha: Málaga, 05/11/2026
+        Descripción: Dada una matriz cuadrada (por ejemplo, 3x3), extrae y muestra únicamente los elementos de su diagonal principal.
+        */
+        
+        int[][] matriz = new int[3][3];
+        int aleatorio = ((int)(Math.random()*(234-42+1)+42));
+        int diagonal = 0;
+        
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                matriz[i][j] = aleatorio;
+                aleatorio = ((int)(Math.random()*(234-42+1)+42));
+            }
+        }
+        
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                System.out.print(matriz[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        
+        
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                if(i == j){
+                    diagonal = diagonal + matriz[i][j];
+                }
+            }
+        }
+        
+        System.out.println("La suma de elementos de la diagonal principal son: "+diagonal);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
